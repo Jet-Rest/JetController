@@ -1,5 +1,6 @@
 package cn.codetector.jet.jetcontroller
 
+import cn.codetector.jet.jetcontroller.servicemanager.communication.ServiceCommunicationServer
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
@@ -9,5 +10,5 @@ import kotlinx.coroutines.experimental.launch
  * Project Classroom
  */
 fun main(args: Array<String>) {
-
+    ServiceCommunicationServer(5000).startServer()
 }
