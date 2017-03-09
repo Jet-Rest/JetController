@@ -9,15 +9,5 @@ import kotlinx.coroutines.experimental.launch
  * Project Classroom
  */
 fun main(args: Array<String>) {
-    val start = System.currentTimeMillis()
-    println("Start")
 
-    launch(CommonPool) {
-        delay(1000)
-        println("Hello")
-    }
-
-
-    Thread.sleep(2000)
-    println("Stop ${System.currentTimeMillis() - start}")
 }
