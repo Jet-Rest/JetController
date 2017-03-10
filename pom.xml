@@ -10,10 +10,12 @@
 
 
     <properties>
+        <jet.configuration.version>0.1-SNAPSHOT</jet.configuration.version>
         <netty.version>4.1.8.Final</netty.version>
         <kotlin.version>1.1.0</kotlin.version>
         <kotlinx.coroutines.version>0.12</kotlinx.coroutines.version>
         <reflections.version>0.9.10</reflections.version>
+        <org.apache.logging.log4j2.version>2.7</org.apache.logging.log4j2.version>
         <junit.version>5.0.0-M3</junit.version>
         <junit.surefire.version>1.0.0-M3</junit.surefire.version>
         <dokka.version>0.9.13</dokka.version>
@@ -81,6 +83,38 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${org.apache.logging.log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${org.apache.logging.log4j2.version}</version>
+        </dependency>
+        <dependency> <!-- 桥接：告诉Slf4j使用Log4j2 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${org.apache.logging.log4j2.version}</version>
+        </dependency>
+        <dependency> <!-- 桥接：告诉commons logging使用Log4j2 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>${org.apache.logging.log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.23</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.codetector.jet</groupId>
+            <artifactId>jet-configuration</artifactId>
+            <version>${jet.configuration.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

@@ -11,20 +11,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel
  * Created by Codetector on 2017/3/8.
  * Project Jet
  */
-class ServiceCommunicationServer(val bindPort: Int) {
-    fun startServer() {
-        val bossGroup = NioEventLoopGroup()
-        val workerGroup = NioEventLoopGroup()
+class ServiceCommunicationServer {
 
-        val b = ServerBootstrap()
-        b.group(bossGroup, workerGroup)
-                .channel(NioServerSocketChannel::class.java)
-                .childHandler(object : ChannelInitializer<SocketChannel>() {
-                    override fun initChannel(channel: SocketChannel?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
-                })
-        val channelFuture = b.bind(bindPort).sync()
-
-    }
 }
