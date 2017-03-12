@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory
  * Project Classroom
  */
 fun main(args: Array<String>) {
-    LoggerFactory.getLogger("Maig").error("Magic")
     val server = ServiceCommunicationManager().startServer()
     server.nettyServer.channel.closeFuture().sync()
 }

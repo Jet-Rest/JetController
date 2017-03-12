@@ -116,6 +116,11 @@
             <version>${jet.configuration.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.codetector.jet</groupId>
+            <artifactId>jet-simple-json</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
