@@ -45,6 +45,28 @@
             <name>bintray</name>
             <url>http://dl.bintray.com/kotlin/kotlin-eap-1.1</url>
         </repository>
+        <repository>
+            <id>codetectorRepoRelease</id>
+            <name>codetectorRelease</name>
+            <url>http://nexus.codetector.cn/repository/codetector/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>codetectorRepoStage</id>
+            <name>codetectorStaging</name>
+            <url>http://nexus.codetector.cn/repository/codetector-staging/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <dependencies>
