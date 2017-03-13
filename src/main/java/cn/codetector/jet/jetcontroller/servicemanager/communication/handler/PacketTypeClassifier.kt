@@ -10,6 +10,6 @@ import io.netty.handler.codec.ByteToMessageDecoder
  */
 class PacketTypeClassifier : ByteToMessageDecoder(){
     override fun decode(ctx: ChannelHandlerContext?, `in`: ByteBuf?, out: MutableList<Any>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 }
