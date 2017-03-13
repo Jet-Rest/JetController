@@ -3,7 +3,6 @@ package cn.codetector.jet.jetcontroller.servicemanager.communication.handler
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.ByteToMessageDecoder
-import io.netty.handler.codec.MessageToMessageDecoder
 
 /**
  * Created by Codetector on 2017/3/11.

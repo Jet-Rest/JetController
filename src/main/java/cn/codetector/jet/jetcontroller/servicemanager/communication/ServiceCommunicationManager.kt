@@ -1,6 +1,7 @@
 package cn.codetector.jet.jetcontroller.servicemanager.communication
 
 import cn.codetector.jet.jetconfiguration.ConfigurationManager
+import cn.codetector.jet.std.network.decoder.ByteToRawPacketDecoder
 import cn.codetector.jet.jetcontroller.util.NettyServer
 import cn.codetector.jet.jetcontroller.util.formatSizeLength
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder
@@ -21,7 +22,9 @@ class ServiceCommunicationManager {
 
     var nettyServer = NettyServer(targetPort, { ch ->
         logger.debug("Connection established ${ch.remoteAddress().address}")
-        ch.pipeline().addLast("Packet Length Header Stripper", LengthFieldBasedFrameDecoder(maxLength, 0, 4, 0, 4))
+        ch.pipeline()
+                .addLast("Packet Length Header Stripper", LengthFieldBasedFrameDecoder(maxLength, 0, 4, 0, 4))
+                .addLast("Raw Packet Transcoder", ByteToRawPacketDecoder())
     })
 
     fun startServer(): ServiceCommunicationManager {

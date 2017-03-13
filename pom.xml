@@ -143,6 +143,11 @@
             <artifactId>jet-simple-json</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>cn.codetector.jet</groupId>
+            <artifactId>std</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -186,7 +191,6 @@
                 <version>${dokka.version}</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
                         <goals>
                             <goal>javadocJar</goal>
                         </goals>
