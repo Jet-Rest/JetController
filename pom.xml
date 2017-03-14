@@ -12,7 +12,7 @@
     <properties>
         <jet.configuration.version>0.1-SNAPSHOT</jet.configuration.version>
         <netty.version>4.1.8.Final</netty.version>
-        <kotlin.version>1.1.0</kotlin.version>
+        <kotlin.version>1.1.1</kotlin.version>
         <kotlinx.coroutines.version>0.12</kotlinx.coroutines.version>
         <reflections.version>0.9.10</reflections.version>
         <org.apache.logging.log4j2.version>2.7</org.apache.logging.log4j2.version>
