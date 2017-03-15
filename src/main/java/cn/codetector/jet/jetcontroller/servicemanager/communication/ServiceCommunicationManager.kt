@@ -1,9 +1,15 @@
 package cn.codetector.jet.jetcontroller.servicemanager.communication
 
 import cn.codetector.jet.jetconfiguration.ConfigurationManager
-import cn.codetector.jet.std.network.decoder.ByteToRawPacketDecoder
+import cn.codetector.jet.jetcontroller.servicemanager.communication.handler.PacketTypeClassifier
 import cn.codetector.jet.jetcontroller.util.NettyServer
 import cn.codetector.jet.jetcontroller.util.formatSizeLength
+import cn.codetector.jet.std.network.decoder.ByteToRawpacketDecoder
+import cn.codetector.jet.std.network.decoder.PacketLengthBasedDecoder
+import cn.codetector.jet.std.network.decoder.RawPacketClassifier
+import cn.codetector.jet.std.network.encoder.JsonPacketEncoder
+import cn.codetector.jet.std.network.encoder.PuretextPacketEncoder
+import cn.codetector.jet.std.network.encoder.RawPacketEncoder
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder
 import org.slf4j.LoggerFactory
 
@@ -23,8 +29,15 @@ class ServiceCommunicationManager {
     var nettyServer = NettyServer(targetPort, { ch ->
         logger.debug("Connection established ${ch.remoteAddress().address}")
         ch.pipeline()
-                .addLast("Packet Length Header Stripper", LengthFieldBasedFrameDecoder(maxLength, 0, 4, 0, 4))
-                .addLast("Raw Packet Transcoder", ByteToRawPacketDecoder())
+                .addLast("Packet Length Header Stripper", PacketLengthBasedDecoder(maxLength))
+                .addLast("RawPacket Decoder", ByteToRawpacketDecoder())
+                .addLast("Raw Packet Classifier", RawPacketClassifier())
+                // Encoders
+                .addLast("Raw Packet Encoder", RawPacketEncoder())
+                .addLast("PureText Encoder", PuretextPacketEncoder())
+                .addLast("Json -> text Packet", JsonPacketEncoder())
+                // Handlers
+                .addLast(PacketTypeClassifier())
     })
 
     fun startServer(): ServiceCommunicationManager {

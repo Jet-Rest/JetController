@@ -146,7 +146,7 @@
         <dependency>
             <groupId>cn.codetector.jet</groupId>
             <artifactId>std</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
