@@ -9,8 +9,6 @@
         <Logger name="com.mchange" level="OFF"/>
         <Logger name="io.netty" level="OFF"/>
         <Logger name="com.j256.simplemagic" level="WARN"/>
-        <Logger name="io.vertx" level="WARN"/>
-        <Logger name="io.vertx.ext.web.impl.RouterImpl" level="trace"/>
         <Root level="trace">
             <AppenderRef ref="SysOut"/>
         </Root>
